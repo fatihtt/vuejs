@@ -1,0 +1,28 @@
+.div-product-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.div-product {
+    display: flex;
+    flex-direction: column;
+}
+.div-product-name {
+    font-size: 40px;
+    font-weight: bold;
+}
+.div-product-image > img{
+    width: 300px;
+}
+.div-variant {
+    padding: 3px 5px;
+    cursor: default;
+}
+.div-cart {
+    margin: 10px 100px;
+}
+button {
+    width: 10em;
+    height: 3em;
+    margin-top:20px;
+}

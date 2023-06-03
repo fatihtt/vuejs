@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning VueJS - 06 - Event Handling</title>
+    <link rel="stylesheet" type="text/css" href="./assets/styles.css" />
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="div-product-main">
+            <div class="div-product-image">
+                <img :src="product.imageUrl" :alt="product.imageDescription">
+            </div>
+            <div class="div-product">
+                <div class="div-product-name">
+                    {{ product.name }}
+                </div>
+                <h2>Event Handling</h2>
+                <div class="div-stock">
+                    <p v-if="product.inStock">In Stock</p>
+                </div>
+                <div class="div-details">
+                    <ul>
+                        <li v-for="detail in product.details">
+                            {{ detail }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="div-variants">
+                    <h3>"@mouseover" changeImage</h3>
+                    <h4>Variants:</h4>
+                    <div class="div-variant" v-for="variant in product.variants" :key="variant.id" @mouseover="showImage(variant.imageUrl);">{{ variant.color }}</div>
+                </div>
+                <div class="div-button">
+                    <h3>"v-on:click" and in-line code (without method)</h3>
+                    <button v-on:click="this.cart += 1;">Add to Cart</button>
+                </div>
+                <div class="div-button">
+                    <h3>"@click" with method</h3>
+                    <button @click="addToCart">Add to Cart</button>
+                </div>
+                <div class="div-button">
+                    <h3>Challenge</h3>
+                    <button @click="removeFromCart">Remove from Cart</button>
+                </div>
+            </div>
+            <div class="div-cart">
+                <div class="div-cart-in">
+                    Cart ({{ cart }})
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
+</body>
+</html>
