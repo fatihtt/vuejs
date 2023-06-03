@@ -19,20 +19,24 @@
                 <div class="div-product-name">
                     {{ product.name }}
                 </div>
+                <!-- Attribute binding -->
                 <div class="div-product-description">
                     <a :href="product.url" target="_blank">search @ google</a>
                 </div>
+                <!-- conditional rendering with bool; if, else -->
                 <div class="div-product-stock">
                     <h3>if, else with boolean condition</h3>
                     <p v-if="product.inStock">In Stock</p>
                     <p v-else>Out of Stock</p>
                 </div>
+                <!-- conditional rendering with mathematical conditions; if, elseif, else -->
                 <div class="div-product-stock">
                     <h3>if, elseif, else with mathematical condition</h3>
                     <p v-if="product.inventory > 10">In Stock</p>
                     <p v-else-if="product.inventory <= 10 && product.inventory > 0">Almost sold out!</p>
                     <p v-else>Out of stock :(</p>
                 </div>
+                <!-- conditional rendering with v-show -->
                 <div class="div-product-stock">
                     <h3>v-show</h3>
                     <p v-show="product.onSale">On Sale</p>
