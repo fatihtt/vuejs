@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning VueJS - 05 - List rendering</title>
+    <link rel="stylesheet" type="text/css" href="./assets/styles.css" />
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="div-product-main">
+            <div class="div-product-image">
+                <img :src="product.imageUrl" :alt="product.imageDescription">
+            </div>
+            <div class="div-product">
+                <div class="div-product-name">
+                    {{ product.name }}
+                </div>
+                <!-- list-rendering -->
+                <h2>List Rendering</h2>
+                <div>
+                    <h3>Item binding with v-for</h3>
+                    <ul>
+                        <li v-for="detail in product.details">{{ detail }}</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Item and "key" attribute binding with v-for</h3>
+                    <div v-for="variant in product.variants" :key="variant.id">{{ variant.color }}</div>
+                </div>
+                <div>
+                    <h3>Challenge</h3>
+                    <div v-for="size in product.sizes" :key="size.id">
+                        {{ size.code }}, {{ size.name }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
+</body>
+</html>
