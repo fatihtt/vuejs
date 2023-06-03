@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning VueJS - 03 - Attribute Binding</title>
+    <link rel="stylesheet" type="text/css" href="./assets/styles.css" />
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="div-product-main">
+            <div class="div-product-image">
+                <img :src="product.imageUrl" :alt="product.imageDescription">
+            </div>
+            <div class="div-product">
+                <div class="div-product-name">
+                    {{ product.name }}
+                </div>
+                <div class="div-product-description">
+                    <a :href="product.url" target="_blank">search @ google</a>
+                </div>
+                <div class="div-product-stock">
+                    <h3>if, else with boolean condition</h3>
+                    <p v-if="product.inStock">In Stock</p>
+                    <p v-else>Out of Stock</p>
+                </div>
+                <div class="div-product-stock">
+                    <h3>if, elseif, else with mathematical condition</h3>
+                    <p v-if="product.inventory > 10">In Stock</p>
+                    <p v-else-if="product.inventory <= 10 && product.inventory > 0">Almost sold out!</p>
+                    <p v-else>Out of stock :(</p>
+                </div>
+                <div class="div-product-stock">
+                    <h3>v-show</h3>
+                    <p v-show="product.onSale">On Sale</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
+</body>
+</html>
